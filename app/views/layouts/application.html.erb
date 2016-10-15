@@ -1,44 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SaigonRestaurant</title>
+    <title>Saigon Restaurant</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <style>
-      .carousel-inner > .item > img,
-      .carousel-inner > .item > a > img {
-          width: 70%;
-          margin: auto;
-      }
-      body {
-              background-image: url('https://wallpaperscraft.com/image/restaurant_cafe_appliances_tables_chairs_interior_design_39216_1920x1080.jpg') ;
-              background-position: center;
-              background-repeat: no-repeat;
-              background-size: cover;
-              -webkit-background-size: cover;
-              -moz-background-size: cover;
-              -o-background-size: cover;
-              height:100%;
-      }
-      body { background-color:#CCC }
-      #map-outer {  height: 440px; 
-            padding: 20px; 
-          border: 2px solid #CCC; 
-          margin-bottom: 20px; 
-          background-color:#FFF }
-      #map-container { height: 400px }
-      @media all and (max-width: 991px) {
-        #map-outer  { height: 650px }
-      }    
-    </style>
 
-    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script src="http://maps.google.com/maps/api/js?key=AIzaSyDkRvEfoiJIfBHNKNJo0dD0sbY6NsGpYiw&sensor=false"></script>
     <script>  
  
       function init_map() {
-    var var_location = new google.maps.LatLng(45.430817,12.331516);
+    var var_location = new google.maps.LatLng(10.7782,106.7019);
  
         var var_mapoptions = {
           center: var_location,
@@ -50,11 +23,11 @@
  
     var contentString = 
       '<div id="infowindow_content">'+
-            '<p><strong>Heading</strong><br>'+
-            'this is an example of a line with information<br>' +
-            'second line of infotext<br>'+
-            'third line of infotext</p>'+
-            '<a href="http://www.tutsme-webdesign.info" target="_blank">This is a link</a>'+
+            '<p><strong>Saigon Restaurant</strong><br>'+
+            'First week assignment<br>' +
+            'for the Ruby course<br>'+
+            'conducted by CoderSchool</p>'+
+            '<a href="http://www.coderschool.vn" target="_blank">Visit CoderSchool</a>'+
             '</div>';
  
         var var_infowindow = new google.maps.InfoWindow({
@@ -80,12 +53,13 @@
           <%= link_to 'Saigon Restaurant', root_path, class: 'navbar-brand' %>
         </div>
         <ul class="nav navbar-nav">
-          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Menu <span class="caret"></span></a>
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="/food_items">Menu <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="#">Breakfast</a></li>
-              <li><a href="#">Lunch</a></li>
-              <li><a href="#">Dinner</a></li>
-              <li><a href="#">Drink</a></li>
+              <li><%= link_to 'All', food_items_path(:menu_type => 'all') %><li>
+              <li><%= link_to 'Breakfast', food_items_path(:menu_type => 'breakfast') %><li>
+              <li><%= link_to 'Lunch', food_items_path(:menu_type => 'lunch') %><li>
+              <li><%= link_to 'Dinner', food_items_path(:menu_type => 'dinner') %><li>
+              <li><%= link_to 'Drinks', food_items_path(:menu_type => 'drinks') %><li>
             </ul>
           </li>
           <li><%= link_to 'Contact', sites_about_path %></li>

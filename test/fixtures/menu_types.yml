@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: Breakfast
+
+two:
+  type: Lunch
+
+three:
+  type: Dinner
+
+four:
+  type: Drink

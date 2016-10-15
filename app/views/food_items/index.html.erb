@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+
+<%  if current_page?(food_items_path) && @menu_type != "all" %>
+  <!-- Search form -->
+  <form class="form-inline pull-xs-right">
+    <%= form_tag(food_items_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search food", class: 'form-control' %>
+    <%= hidden_field_tag :menu_type, @menu_type %>
+
+    <%= submit_tag "Search", class: 'btn btn-outline-success' %><br>
+
+    <% if (@sort_order == 0) %>
+      <%= radio_button_tag(:sort, "alphabetical", checked = true) %>
+    <% else %>
+      <%= radio_button_tag(:sort, "alphabetical", checked = false) %>
+    <% end %>
+    <%= label_tag(:sort_alphabetical, "Alphabetical") %> 
+
+    <% if (@sort_order == 1) %>
+      <%= radio_button_tag(:sort, "price_asc", checked = true) %>
+    <% else %>
+      <%= radio_button_tag(:sort, "price_asc", checked = false) %>
+    <% end %>
+    <%= label_tag(:sort_price_asc, "Price Low to High") %>  
+
+    <% if (@sort_order == 2) %>
+      <%= radio_button_tag(:sort, "price_desc", checked = true) %>
+    <% else %>
+      <%= radio_button_tag(:sort, "price_desc", checked = false) %>
+    <% end %>
+    <%= label_tag(:sort_price_desc, "Price High to Low") %>  
+
+    <% if (@sort_order == 3) %>
+      <%= radio_button_tag(:sort, "most_viewed", checked = true) %>
+    <% else %>
+      <%= radio_button_tag(:sort, "most_viewed", checked = false) %>
+    <% end %>
+    <%= label_tag(:sort_most_viewed, "Most Viewed") %>  
+
+    <% end %>
+  </form>
+
+  <%= render 'menu_by_type', food_items: @food_items, menu_type: @menu_type %>
+
+<% elsif current_page?(food_items_path) && @menu_type == "all" %>
+  <h1>All Menu</h1>
+
+  <%= render 'menu_by_type', food_items: @breakfast_items, menu_type: :breakfast %>
+  <%= render 'menu_by_type', food_items: @lunch_items, menu_type: :lunch %>
+  <%= render 'menu_by_type', food_items: @dinner_items, menu_type: :dinner %>
+  <%= render 'menu_by_type', food_items: @drinks_items, menu_type: :drinks %>
+<% end %>
+
+<br>
+
+<!-- <%= link_to 'New Food Item', new_food_item_path %>
+ -->

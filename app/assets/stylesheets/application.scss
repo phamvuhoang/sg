@@ -1,2 +1,34 @@
 @import "bootstrap";
 @import "font-awesome";
+
+body {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    height:100%;
+}
+body { background-color:#CCC }
+
+abc {
+    background-image: url('https://wallpaperscraft.com/image/
+    restaurant_cafe_appliances_tables_chairs_interior_design_39216_1920x1080.jpg') ;
+
+}
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+    width: 70%;
+    margin: auto;
+}
+
+#map-outer {  height: 440px; 
+      padding: 20px; 
+    border: 2px solid #CCC; 
+    margin-bottom: 20px; 
+    background-color:#FFF }
+#map-container { height: 400px }
+@media all and (max-width: 991px) {
+  #map-outer  { height: 650px }
+}    
