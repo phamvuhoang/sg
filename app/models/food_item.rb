@@ -1,5 +1,6 @@
 class FoodItem < ApplicationRecord
   belongs_to :menu_type
+  has_many :orders, dependent: :destroy
 
   def self.search(search, menu_type)
     if (search != "")

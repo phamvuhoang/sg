@@ -1,0 +1,21 @@
+  <h2>Thank you for your order!</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Food name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @food_item.name %></td>
+        <td><%= number_to_currency(@food_item.price, :unit => "VND") %></td>
+        <td><%= @order.quantity %></td>
+        <td><%= number_to_currency((@food_item.price * @order.quantity), :unit => "VND") %></td>
+      </tr>
+    </tbody>
+  </table>
+  <%= link_to 'Menu', food_items_path, class: "card-link" %>
+

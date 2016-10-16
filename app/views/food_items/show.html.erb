@@ -1,13 +1,20 @@
 <p id="notice"><%= notice %></p>
-
-<div class="card">
-  <div class="card-block">
-    <h4 class="card-title"><%= @food_item.name %></h4>
-    <h6 class="card-subtitle"><%= number_to_currency(@food_item.price, :unit => "VND") %></h6>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-block">
+        <h4 class="card-header card-title"><%= @food_item.name %></h4>
+        <h6 class="card-subtitle"><%= number_to_currency(@food_item.price, :unit => "VND") %></h6>
+      </div>
+      <img src="<%= @food_item.image_url %>" alt="Card image" class="img-responsive img-rounded img-thumbnail">
+      <div class="card-block">
+        <p class="card-text"><%= @food_item.description %></p>
+      </div>
+    </div>
   </div>
-  <img src="<%= @food_item.image_url %>" alt="Card image" class="img-responsive img-rounded img-thumbnail">
-  <div class="card-block">
-    <p class="card-text"><%= @food_item.description %></p>
+  <div class="col-sm-6">
+    <h2>Order this food</h2>
+    <%= render 'orders/form', food_item: @food_item %>
   </div>
 </div>
 

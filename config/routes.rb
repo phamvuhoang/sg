@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :food_items
+  resources :food_items do
+    resources :orders
+  end
   get 'sites/about'
   #get '/food_items/type/breakfast', to: 'foot_items#breakfast'
  
