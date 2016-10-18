@@ -2,7 +2,12 @@ Rails.application.routes.draw do
   resources :food_items do
     resources :orders
   end
+
+  resources :users
+  resources :sessions
+
   get 'sites/about'
+  get 'users/index'
   #get '/food_items/type/breakfast', to: 'foot_items#breakfast'
  
   root "home#index"
