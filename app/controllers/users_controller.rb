@@ -19,6 +19,17 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def add_friend
+  end
+
+  def remove_friend
+  end
+
+  def friends
+    @users = current_user.friends
+    render friends_users_path
+  end
+
   private
 
   def user_params

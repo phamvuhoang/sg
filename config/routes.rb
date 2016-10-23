@@ -3,7 +3,23 @@ Rails.application.routes.draw do
     resources :orders
   end
 
-  resources :users
+  resources :users do
+    collection do
+      get :friends
+    end
+    
+    resources :messages
+  end
+
+  resources :messages do
+    collection do
+      get :sent
+      get :received
+    end
+  end
+
+  resources :friendships
+
   resources :sessions, only: [:new, :create]
 
   get 'sites/about'

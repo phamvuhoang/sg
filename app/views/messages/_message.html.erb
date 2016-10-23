@@ -1,0 +1,36 @@
+<table class="table table-stripped">
+<thead class="thead thead-default">
+  <tr>
+    <th>Sender</th>
+    <th>Receiver</th>
+    <th>Sent at</th>
+    <th>Read at</th>
+    <th>Action</th>
+  </tr>
+</thead>
+
+<% @messages.each do |msg| %>
+
+<% is_unread = current_user.received_messages.include?(msg) && msg.read_at.blank? %>
+  
+<tr>
+  <% unless msg.read? %>
+    <td><strong><%= msg.user.name %></strong></td>
+    <td><strong><%= msg.recipient.name %></strong></td>
+    <td><strong><%= time_ago_in_words(msg.created_at) unless msg.created_at.blank? %></strong></td>
+    <td><strong><%= time_ago_in_words(msg.read_at) unless msg.read_at.blank? %></strong></td>
+  <% else %>
+    <td><%= msg.user.name %></td>
+    <td><%= msg.recipient.name %></td>
+    <td><%= time_ago_in_words(msg.created_at) unless msg.created_at.blank? %></td>
+    <td><%= time_ago_in_words(msg.read_at) unless msg.read_at.blank? %></td>
+  <% end %>    
+  <td>
+    <%= link_to 'View', message_path(msg.id) %>
+    <%= link_to 'Delete', message_path(msg.id) %>
+  </td>
+</tr>
+  
+<% end %>
+  
+</table>

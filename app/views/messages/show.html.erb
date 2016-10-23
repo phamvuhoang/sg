@@ -1,0 +1,25 @@
+<h2>View message</h2>
+
+<table class="table table-stripped">
+<thead class="thead thead-default">
+  <tr>
+    <th>Sender</th>
+    <th>Receiver</th>
+    <th>Body</th>
+    <th>Sent at</th>
+    <th>Read at</th>
+    <th>Action</th>
+  </tr>
+</thead>
+<tr>
+  <td><%= @message.user.name %></td>
+  <td><%= @message.recipient.name %></td>
+  <td><%= @message.body %></td>
+  <td><%= time_ago_in_words(@message.created_at) %></td>
+  <td><%= time_ago_in_words(@message.read_at) unless @message.read_at.blank? %></td>
+  <td>
+    <%= link_to 'Delete', message_path(@message.id) %>
+  </td>
+</tr>
+  
+</table>

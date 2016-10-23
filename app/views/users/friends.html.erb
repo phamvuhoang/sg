@@ -1,0 +1,7 @@
+<h1>Users</h1>
+
+<% if @users.present? %>
+  <%= render 'user', users: @users %>
+<% else %>
+  <p>You have no friend yet</p>
+<% end %>
