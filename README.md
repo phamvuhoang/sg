@@ -1,11 +1,12 @@
-W1 Assignment - Saigon Restaurant Web
+W2 Assignment - CoderChat
 
 
-Saigon Restaurant Website is a Ruby on Rails web application.
+CoderChat is a Ruby on Rails web application.
+New friends/chat functionalities were added to Saigon Restaurant web app which was developed as assignment of 1st Week, in order to improve order function of the Restaurant.
 
 Submitted by: HENRY Pham Vu Hoang
 
-Time spent: 8 hours spent in total
+Time spent: 6 hours spent in total
 
 URL: Not available
 
@@ -28,18 +29,26 @@ The following **required** functionality is complete:
 * [x] The User is able to fill in their name, phone number, and address.
 * [x] The User is taken to a "Thank you for your order page".
 
-The following **required** features are not implemented:
+* [x] User can sign up by providing their email, password, and name.
+* [x] User can login using an email and password.
+* [x] After logging in, the user is taken to a page that has a list of incoming messages, sorted in descending chronological order (newest messages at top), a "new message" link, an "add friends" link, and a "sent messages" link.
+* [x] Unread messages should be bold or something similar in the list of messages.
+* [x] Clicking the "add friends" link takes the user to a page with all users listed, with a link to "add user to friends list".
+* [x] Clicking on "Send message" takes the user to a page where they can write a new mesasge. The recipient is the user selected at users list.
+* [x] Clicking on "sent messages" takes the user to a page listing messages they have sent. Each message should display at what time it was read by the recipient, or "unread". The user cannot read the contents of the messages.
+* [x] User can read a message's content only once. Once the message has been read, the user will see a page indicating the message has already been read.
+* [x] User can only read messages where they are the recipient.
+
+The following **optional** features are not implemented:
 
 The following **additional** features are implemented:
-
-- [x] The User can see how many times each menu item has been viewed, and sort items by "most viewed".
 
 
 ## Video Walkthrough 
 
 Here's a walkthrough of implemented user stories:
 
-![Video Walkthrough](https://s17.postimg.org/bb8ptqlof/restaurant.gif)
+![Video Walkthrough](http://imgur.com/a/qRAiz)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
