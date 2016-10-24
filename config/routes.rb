@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :users do
     collection do
       get :friends
+      get :inverse_friends
     end
     
     resources :messages

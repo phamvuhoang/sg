@@ -30,6 +30,11 @@ class UsersController < ApplicationController
     render friends_users_path
   end
 
+  def inverse_friends
+    @users = current_user.inverse_friends
+    render friends_users_path
+  end
+
   private
 
   def user_params
