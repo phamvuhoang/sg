@@ -35,6 +35,13 @@ class UsersController < ApplicationController
     render friends_users_path
   end
 
+  def friends_by_all_mean
+    @users = current_user.friends
+    @users << current_user.inverse_friends
+    
+    render friends_users_path
+  end
+
   private
 
   def user_params

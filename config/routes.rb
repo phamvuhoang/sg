@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     collection do
       get :friends
       get :inverse_friends
+      get :friends_by_all_mean
     end
     
     resources :messages
