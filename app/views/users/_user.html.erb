@@ -16,6 +16,8 @@
       <%= link_to 'Send message', new_user_message_path(user.id) %>
       <% unless current_user.friends.include?(user) %>
         <%= link_to 'Add friend', friendships_path(:friend_id => user), :method => :post %>
+      <% else %>
+        <%= link_to 'Remove friend', friendship_path(:id => user.id), :method => :delete, :data => {:confirm => 'Are you sure?'} %>
       <% end %>
     </td>
   </tr>
