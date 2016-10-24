@@ -33,6 +33,9 @@ class MessagesController < ApplicationController
 
   def show
     @message = Message.find(params[:id])
+
+    @viewable = (current_user != @message.recipient) || (@message.read_at.blank?)
+
     if current_user == @message.recipient
       @message.mark_as_read!
     end

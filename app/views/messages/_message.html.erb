@@ -14,7 +14,7 @@
 <% is_unread = current_user.received_messages.include?(msg) && msg.read_at.blank? %>
   
 <tr>
-  <% unless msg.read? %>
+  <% unless !is_unread %>
     <td><strong><%= msg.user.name %></strong></td>
     <td><strong><%= msg.recipient.name %></strong></td>
     <td><strong><%= time_ago_in_words(msg.created_at) unless msg.created_at.blank? %></strong></td>
